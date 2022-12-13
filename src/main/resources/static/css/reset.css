@@ -1,0 +1,16 @@
+/* html 태그가 가지고 있는 기본 스타일을 제거하기 위한 스타일 파일 */
+
+body, h1, h2, ul, li { /* body 태그가 가진 기본 마진 값을 제거하기 */
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    /* 기존에 ul이 가지고 있던 기본 스타일을 덮어써서 없애기 */
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #343434;
+}

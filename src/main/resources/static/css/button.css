@@ -1,0 +1,31 @@
+.btn {
+    /* 모든 버튼의 공통스타일 */
+    padding: 0.4em 0.8em; /* 상하, 좌우 */
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
+
+    transition: background-color .5s;
+}
+
+.btn-default {
+    border-radius: 20px;
+    border: 1px solid 2E2E2E;
+    background-color: coral;
+    color: #fff;
+}
+
+.btn-d-fill {
+    /* 배경색이 있는 버튼 */
+    background-color: #2E2E2E;
+}
+
+
+.btn-d-unfill {
+    /* 배경색이 없는 버튼 */
+}
+
+.btn-cancel {
+    border-radius: 20px;
+    border: 1px solid coral;
+}

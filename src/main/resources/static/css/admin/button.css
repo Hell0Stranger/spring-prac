@@ -1,0 +1,107 @@
+/* 페이지에서 사용하는 여러개의 버튼의 스타일들을 모아 놓는 파일 */
+
+.btn {
+    /* 모든 버튼의 공통스타일 */
+    /* margin: 30px; */
+    padding: 0.4em 0.8em; /* 상하, 좌우 */
+    /* background-color: rgb(26, 26, 26); */
+    /* display: inline-block; */
+    /* color: #fff; */
+    /* line-height: 1.8em; 폰트 높이(1em) + 상단 패딩 + 하단 패딩 */
+
+    display: inline-flex;
+    align-items: center;
+
+    transition: background-color .5s;
+}
+
+
+
+.btn-ok {
+    /* ok 버튼만의 특화된 스타일 */
+    background-color: rgb(26, 26, 26);
+}
+
+.btn-ok:hover {
+    background-color: rgb(238, 163, 151);
+    color: black;
+}
+
+.btn-cancel {
+
+}
+
+.btn-strong {
+
+}
+
+
+
+/* 버튼이 꺼졌을 때의 속성값 */
+.btn-toggle {
+    --radius: 25px; /* 지역변수처럼 btn-toggle에서만 사용할 수 있는 변수  */
+    background-color: rgb(64, 64, 64);
+    color: rgb(233, 186, 186);
+    box-sizing: border-box;     /* 박스의 크기를 정할 때 */
+    overflow: hidden;
+    text-indent: -999px;
+    border: none;
+    border-radius: calc(var(--radius) / 2.1) 0 0 calc(var(--radius) / 2.1);
+    height: var(--radius);
+    width: calc(var(--radius)* 2);
+    position: relative;
+    /* 모든 속성에 대해 트랜지션을 1.5초 준다. 
+    트랜지션이란. 1.5초 동안 변화되는 과정을 보여주는 것 */
+    /* transition: all 1.5s; */
+
+}
+
+.btn-toggle::before {
+    /* 부모에 있는 변수는 사용가능하다. */
+    content: '';
+    box-sizing: border-box;
+    background-color: rgb(234, 182, 182);
+    height: calc(var(--radius) - 4px);
+    width: calc(var(--radius) - 4px);
+    border-radius: calc((var(--radius) - 4px)/2);
+    text-indent: -999px;
+    position: absolute;
+    left:2px;
+    
+    transition: left 1.5s, top 0.5s; /* 여러 속성을 쉼표로 구분하여 한번에 값을 줄 수 있다. */
+}
+
+
+/* 버튼이 켜졌을 때의 속성값 */
+.btn-toggle:hover, /* btn-toggle 에  */
+.btn-toggle-on {
+    background-color: cornflowerblue;
+    border-radius: 0 calc(var(--radius) / 2.1) calc(var(--radius) / 2.1) 0;
+}
+
+
+.btn-toggle-on::before {
+    background-color: rgb(169, 197, 248);
+    left: 24px;
+    /* right: 2px; */
+    /* transition: right 1.5s; */
+}
+
+
+.btn-cancel {
+
+}
+
+/* ---------------------------------------- */
+
+@media (min-width: 500px) {
+    .btn-toggle-md {
+        --radius: 50px;
+    }
+}
+
+@media (min-width: 800px) {
+    .btn-toggle {
+        --radius: 10px;
+    }
+}

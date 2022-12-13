@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newlecture.web.dao.MenuDao"> 
+	<select id="getList" resultType="com.newlecture.web.entity.Menu"> <!-- getList() 라는 함수를 구현하기 위해 사용되는 select문 이라는 의미. -->
+		select * from Menu
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+			<if test="field != null">
+				${field} like '%${query}%'
+			</if>
+			and price > 4000
+		</trim>
+		limit #{offset}, #{size}
+	</select>
+	
+	<select id="get" resultType="com.newlecture.web.entity.Menu"> <!-- getList() 라는 함수를 구현하기 위해 사용되는 select문 이라는 의미. -->
+		select * from Menu
+			where id = #{id}
+	</select> 
+	
+	<select id="count" resultType="int"> <!-- getList() 라는 함수를 구현하기 위해 사용되는 select문 이라는 의미. -->
+		select count(id) from Menu
+			where name like '%${query}%'
+	</select>
+	
+	<insert id="insert" parameterType="com.newlecture.web.entity.Menu">
+		insert into Menu(name, price, img)
+			values(#{name}, #{price}, #{img})
+	</insert>
+	
+	<update id="update" parameterType="com.newlecture.web.entity.Menu">
+		update Menu
+		<set>
+			<if test="name != null">name = #{name},</if>
+			<if test="price != null">price = #{price},</if>
+			<if test="img != null">img = #{img},</if>
+		</set>
+			where id = #{id}
+	</update>
+	
+	
+	<delete id="delete">
+		delete from Menu
+			where id = #{id}
+	</delete>
+	
+		
+	<delete id="deleteAll">
+		delete from Menu
+			where id = #{id}
+	</delete>
+</mapper>
+

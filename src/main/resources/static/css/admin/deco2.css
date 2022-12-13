@@ -1,0 +1,66 @@
+/* .deco>* {
+    vertical-align: middle;
+} */
+
+/* html로 요소를 만들지 않고도 css로 가짜 자식 요소 만들기 */
+.deco::before {
+    
+}
+/* 아이콘 기본 설정 */
+.deco-all, .deco-free {
+    /* 박스 맞추기, 정렬을 할 때는 무족권 flex~ */
+    /* 슈도클래스로 만든 자식(아이콘)과 그 아래 자식인 문자('전체')를 정렬하려면 부모로 정렬을 해야한다. */
+    display: inline-flex;
+    align-items: center; /* 수직정렬 할 때는 align-items */
+    /* padding-left: 20px; */
+    transition: 1s;    
+}
+
+.deco-all:hover {
+    background-color: rgb(185, 229, 255);
+    color: rgb(148, 20, 20);
+}
+
+.deco-all::before {
+    content: '';
+    /* display: inline-block; */
+    width: 20px;
+    height: 20px;
+
+    background-color: rgb(17, 17, 185);
+    mask-image: url(../../image/total.svg); /* mask 속성 사용할 때 앞에 접두사(ex.webkit)을 안붙이면 현재 mask 기능이 지원되는 브라우저에서는 모두 적용이 된다. */
+    mask-size: 18px 18px;
+    -webkit-mask-image: url(../../image/total.svg);
+    -webkit-mask-size: 18px 18px;
+    /* mask 기능은 크롬에서 지원되지 않고 있다. 이 때, -webkit- 을 앞에 붙여주면 크롬에서도 사용할 수 있다. */
+    transition: 1s;
+}
+
+.deco-all:hover::before {
+    background-color: rgb(214, 27, 27);
+}
+
+/**************************************************************************/
+.deco-free:hover {
+    background-color: rgb(185, 229, 255);
+    color: rgb(255, 248, 33);
+}
+
+.deco-free::before {
+    /* 컨텐트 값을 넣어줘야 슈도엘리먼트를 자식으로서 사용할 수 있다. */
+    content: '';
+    width: 20px;
+    height: 20px;
+
+    background-color: rgb(17, 17, 185);
+    -webkit-mask-image: url(../../image/note.svg);
+    -webkit-mask-size: 18px 18px;
+
+    transition: 1s;
+}
+
+.deco-free:hover::before {
+    background-color: rgb(229, 87, 16);
+}
+
+

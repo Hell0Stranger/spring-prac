@@ -1,0 +1,69 @@
+.menu form{
+    display: grid;
+    grid-template: "img title title" 24px
+                    "img price opt" 24px
+                    "img btn btn" 32px / 80px 60px 1fr;
+}
+
+.menu form>h1 {
+    grid-area: title;
+    margin-left: 10px;
+
+    font-size: 17px;
+}
+
+.menu-img-box {
+    grid-area: img;
+}
+
+.menu-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    object-fit: cover;
+}
+
+.menu-price {
+    grid-area: price;
+    margin-left: 10px;
+}
+
+
+.menu-option-list {
+    grid-area: opt;
+    justify-self: flex-end;
+}
+
+.menu-button-list {
+    grid-area: btn;
+    justify-self: flex-end; /* 버튼 스스로가 오른쪽에 정렬되도록 */
+}
+
+.menu-option-input {
+    width: 12px;
+    height: 12px;
+    border: 1px solid rgb(252, 178, 178);
+
+}
+
+.input-option-input-on {
+    background-color: rgb(252, 178, 178);
+}
+
+.menu-option {
+    display: inline-flex;
+    align-items: center;
+}
+
+.menu-option .menu-option-input {
+    margin-right: 5px;
+}
+
+/* 16px이 글꼴 기본 크기임 */
+
+
+
+/* .menu-img1 {
+    width: 80px;
+    height: 80px;
+} */
