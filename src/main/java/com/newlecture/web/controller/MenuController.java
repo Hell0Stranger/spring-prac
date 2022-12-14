@@ -30,11 +30,19 @@ public class MenuController {
 	}
 
 	@GetMapping("list")
-	public String list(Model model) { // front Controller 에게 Model 객체를 달라고 요청하는 것
-		service.testTS();
-		model.addAttribute("data", "hello"); // front Controller 에게 값을 넘겨준 것
-		service.getList();
-		System.out.print("호정아 안녕");
+	public String list() {
 		return "menu/list";
 	}
+	
+	@GetMapping("detail")
+	public String detail() {
+		return "menu/detail";
+	}
+//	public String list(Model model) { // front Controller 에게 Model 객체를 달라고 요청하는 것
+//		service.testTS();
+//		model.addAttribute("data", "hello"); // front Controller 에게 값을 넘겨준 것
+//		service.getList();
+//		System.out.print("호정아 안녕");
+//		return "menu/list";
+//	}
 }

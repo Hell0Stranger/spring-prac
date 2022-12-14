@@ -1,59 +1,45 @@
-html {
-    height: 100%;
+@charset "UTF-8";
+
+html{
+	height: 100%;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+body{
+	height: 100%;
+	display: flex;
+	flex-direction: column;	
 }
 
-.header {
-    background-color: yellow;
+main {
+	flex-grow: 1;
+	padding: var(--padding-upside-mobile) var(--padding-side-mobile);
 }
 
-.body {
-    background-color: rgb(110, 199, 255);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+@media screen and (min-width: 1024px) {
+
+/*------------------------body main--------------------------*/
+
+	main {
+		width:1000px;
+		margin: auto;
+		max-width: var(--content-max-width-pc);
+		min-width: var(--content-min-width-pc);
+		
+		/* padding: var(--padding-upside-pc) var(--padding-side-pc); */
+	}
+
+	/*-------------------------------
+	/menu/list
+	---------------------------------*/
+	/*nav*/
+	.nav-category li{
+		width: var(--btn-width-large);
+	}
+
+	/*-------------------------------
+	/menu/detail
+	---------------------------------*/
+	.menu-detail{
+		grid-column-gap: 40px;
+	}
 }
-
-.aside {
-    background-color: rgb(223, 255, 127);
-    flex-grow: 1;
-}
-
-.main {
-    background-color: rgb(253, 150, 176);
-    flex-grow: 2;
-}
-
-.footer {
-    background-color: rgb(255, 224, 48);
-}
-
-/* ------------------------------------------ */
-
-/* 최소 너비 700px부터 최대 너비 800px까지에서만 설정을 적용시킨다. orientation = 핸드폰 가로로 볼때, 세로로볼때 설정값 */
-@media (min-width: 700px) and (max-width: 800px){
-    .body {
-        /* flex-direction: row; */
-    }
-}
-
-
-@media (min-width: 500px) {
-    .main {
-        background-color: rgb(135, 173, 245);
-    }
-}
-
-@media (min-width: 800px) {
-    .main {
-        background-color: rgb(135, 245, 205);
-    }
-}
-
-
-/* 모바일 버전을 만들 떄 크기값은 px이 아닌 %로 값을 주어야 어느 기기든 화면 크기에 맞게 적용이 된다. */
