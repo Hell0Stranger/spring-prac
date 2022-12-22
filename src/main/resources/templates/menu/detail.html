@@ -1,156 +1,88 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
-		<link href="../css/reset.css" type="text/css" rel="stylesheet" >
-		<link href="../css/style.css" type="text/css" rel="stylesheet" >
-		<link href="../css/layout.css" type="text/css" rel="stylesheet" >
-		<link href="../css/header.css" type="text/css" rel="stylesheet" >
-		<link href="../css/footer.css" type="text/css" rel="stylesheet" >
-		<link href="../css/component.css" type="text/css" rel="stylesheet" >
-		<link href="../css/buttons.css" type="text/css" rel="stylesheet" >
-		<link href="../css/icon.css" type="text/css" rel="stylesheet" >
-		<link href="../css/deco.css" type="text/css" rel="stylesheet" >
-		
-		<link href="../css/utils.css" type="text/css" rel="stylesheet" >    
-	</head>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{inc/layout}">
+<!-- ---------------------------------------------------------------------- -->
+<main layout:fragment="content">
+	<section>
+		<header class="search-header">
+			<h1 class="text-title1-h1">알랜드 메뉴</h1>
+			<form>
+				<input type="text">
+				<input type="submit" class="icon icon-find">
+			</form>
+		</header>
 
-<body>
-    <header class="header">
-        <div>
-            <h1 class="header-title"><a href="/index.html"><img class="logo" src="../image/logo-w.png" alt="알랜드"></a></h1>
-            
-            <ul class="main-menu d-none d-inline-flex-sm">
-                <li><a class="" href="/menu/list.html">카페메뉴</a></li>
-                <li><a class="" href="/notice/list.html">공지사항</a></li>
-                <li><a class="" href="/user/login.html">로그인</a></li>
-            </ul>
-            <div class="d-none-sm"><a class="icon icon-menu icon-white" href="?m=on">메뉴버튼</a></div>
-        </div>
-    </header>
+		<nav class="menu-category">
+			<div>
+				<h1 class="text-normal-bold">메뉴분류</h1>
+			</div>
+			<ul>
+				<li class="menu-selected" th:class="${param.c}==null?'menu-selected'">
+					<a href="/menu/list">전체</a>
+				</li>
+				<li class="" th:class="${#strings.equals(param.c, '1')}?'menu-selected'">
+					<a href="" th:text="${session.test}">커피음료</a>
+				</li>
+				<li class="" th:class="${#strings.equals(param.c, '2')}?'menu-selected'">
+					<a href="">수제청</a>
+				</li>
+				<li class=""  th:class="${#strings.equals(param.c, '3')}?'menu-selected'">
+					<a href="">샌드위치</a>
+				</li>
+				<li class=""  th:class="${#strings.equals(param.c, '4')}?'menu-selected'">
+					<a href="">쿠키</a>
+				</li>
+			</ul>
+		</nav>
 
-	<main class="main-padding-none">
-		<section>
-			<h1 class="d-none">알랜드 메뉴 상세정보</h1>
-
-			<section class="cart">
-				<h1 class="d-none">장바구니</h1>
-				<span class="text-title3">커피음료</span>
-				<div class="icon icon-basket">1</div>
-			</section>
-
-			<section>
-				<div class="menu-detail">
-					<header>
-						<h1 class="d-none">수제청</h1>
-						<div class="img-div">
-							<img alt="" src="https://images.unsplash.com/photo-1515442261605-65987783cb6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80">
-						</div>
-					</header>
-					<article>
-						<header>
-							<h1 class="text-title2">딸기청</h1>
-							<span class="text-normal">4,500원</span>
-						</header>
-						<p class="text-normal">신선한 과일로 만들고 알랜드만의 비법으로 직접 만들어서
-							다른 곳에서는 느낄 수 없는 상큼함과 새콤함을 자랑합니다.
-						</p>
-					</article>
-
-					<div>
-						<a href="" class="btn btn-cancel">담기</a>
-						<a href=""  class="btn btn-default">주문하기</a>
-					</div>
-
-					<section class="nutrition-info">
-						<header>
-							<div class="common-p">
-								<h1 class="text-normal">영양정보</h1>
-								<div class="">총량 300ml</div>
-							</div>
-							<div class="tab-div">
-								<a href="" class="btn-toggle-tab">Default 크기</a>
-								<a href="" class="btn-toggle-tab not-selected">Large 크기</a>
-							</div>
-						</header>
-						<ul class="common-p">
-							<li>
-								<span>포화지방</span>
-								<span>2 g</span>
-							</li>
-							<li>
-								<span>단백질</span>
-								<span>2 g</span>
-							</li>
-							<li>
-								<span>나트륨</span>
-								<span>2 mg</span>
-							</li>
-							<li>
-								<span>당</span>
-								<span>2 g</span>
-							</li>
-							<li>
-								<span>카페인</span>
-								<span>2 mg</span>
-							</li>
-						</ul>
-					</section>
-
-				</div>
-
-				<section class="menu-rcmd">
-					<header>
-						<h1 class="d-none">추천 메뉴</h1>
-						<span>함께 시키면 맛나요! ^^</span>
-					</header>
-
-					<div>
-						<a href="">
-							<img class="image-view-round" src="https://images.unsplash.com/photo-1515442261605-65987783cb6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-							<span>아몬드 쿠키</span>
-						</a>
-
-						<a href="">
-							<img class="image-view-round" src="https://images.unsplash.com/photo-1515442261605-65987783cb6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-							<span>아몬드 쿠키</span>
-						</a>
-
-						<a href="">
-							<img class="image-view-round" src="https://images.unsplash.com/photo-1515442261605-65987783cb6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-							<span>아몬드 쿠키</span>
-						</a>
-
-						<a href="">
-							<img class="image-view-round" src="https://images.unsplash.com/photo-1515442261605-65987783cb6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-							<span>아몬드 쿠키</span>
-						</a>
-					</div>
-				</section>
-			</section>
-
-			<section class="new-menu detail-section-p">
-				<h1 class="d-none">신메뉴 목록</h1>
-				<!-- <ul>
-                    <li>
-                    </li>
-                </ul>  -->
-				<div class="list">
-					<span>신규로 출시된 메뉴가 없습니다.</span>
-				</div>
-			</section>
-
+		<section class="cart-section">
+			<h1 class="d-none">장바구니</h1>
+			<span class="text-title3">커피음료</span>
+			<div th:text="${countInCart}" class="icon icon-basket icon-text">1</div>
 		</section>
 
-	</main>
-	<footer class="footer">
-        <h2>알랜드(Rland)</h2>
-        <div>
-            copyright @ rland.co.kr 2022-2022 All Right Reservved. Contact admin@rland.co.kr for more information
-        </div>
-    </footer>
-	</body>
-</html> 
+		<section class="menu-section">
+			<h1 class="d-none">메뉴목록</h1>
+			<div class="menu-list">
+				<section class="menu" th:each="menu:${list}">
+					<form class="" action="list" th:method="post">
+						<h1 th:text="${menu.name}">알랜드 커피</h1>
+						<div class="menu-img-box">
+							<a href="detail.html" th:href="@{{id}(id=${menu.id})}"><img class="menu-img" src="/image/product/12.png"></a>
+						</div>
+						<!-- @{{id}{id=${menu.id}} -->
+						<div class="menu-price" th:text="${menu.price}">4500 원</div>
+						<div class="menu-option-list">
+                              <span class="menu-option">
+                                  <input class="menu-option-input" type="checkbox" name="ice" value="true">
+                                  <label>ICED</label>
+                              </span>
+							<span class="menu-option ml-2">
+                                  <input class="menu-option-input" type="checkbox" name="large" value="true">
+                                  <label>Large</label>
+                              </span>
+						</div>
+						<div class="menu-button-list">
+							<input type="hidden" name="menu-id" th:value="${menu.id}">
+							<input class="btn btn-cancel btn-cancel-lg btn-size-1 btn-size-1-lg" type="submit" name="cmd" value="담기">
+							<input class="btn btn-default btn-default-lg btn-size-1 btn-size-1-lg ml-1" type="submit" name="cmd" value="주문하기">
+						</div>
+					</form>
+				</section>
+			</div>
+		</section>
+
+		<div class="d-flex justify-content-center">
+			<a href="?p=2" class="btn btn-next">더보기(13+)</a>
+		</div>
+
+		<section class="new-menu menu-section-p">
+			<h1 class="d-none">신메뉴 목록</h1>
+			<div class="list">
+				<span>신규로 출시된 메뉴가 없습니다.</span>
+			</div>
+		</section>
+
+	</section>
+</main>

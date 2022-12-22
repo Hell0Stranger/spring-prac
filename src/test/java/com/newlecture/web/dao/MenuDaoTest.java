@@ -20,7 +20,7 @@ class MenuDaoTest { // getList를 테스트하기 위한 메인 함수
 		System.out.println(menuDao);
 		int offset = 0;
 		int size = 10;
-		System.out.println(menuDao.getList(offset, size, null, null));		
+		System.out.println(menuDao.getList());
 //		fail("Not yet implemented"); 실패 매크로
 	}
 

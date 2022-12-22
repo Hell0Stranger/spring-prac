@@ -4,15 +4,14 @@
 	<select id="getList" resultType="com.newlecture.web.entity.Menu"> <!-- getList() 라는 함수를 구현하기 위해 사용되는 select문 이라는 의미. -->
 		select * from Menu
 		<trim prefix="WHERE" prefixOverrides="AND|OR">
-			<if test="field != null">
-				${field} like '%${query}%'
+			<if test="categoryId!=null">
+			categoryId =#{categoryId}
 			</if>
-			and price > 4000
 		</trim>
 		limit #{offset}, #{size}
 	</select>
-	
-	<select id="get" resultType="com.newlecture.web.entity.Menu"> <!-- getList() 라는 함수를 구현하기 위해 사용되는 select문 이라는 의미. -->
+
+	<select id="get" resultType="com.newlecture.web.entity.Menu">
 		select * from Menu
 			where id = #{id}
 	</select> 

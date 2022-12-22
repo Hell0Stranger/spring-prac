@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class RlandApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(RlandApplication.class, args); // 톰캣을 실행하는 코드 => 기존에는 톰캣이 나를 실행했다면 부트는 톰캣을 실행시킴. (주객전도)
 	}
